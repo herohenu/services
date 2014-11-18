@@ -1,5 +1,18 @@
 {
 	"dependencies": {
-		"request": "2.48.0"
+		"request": "2.48.0",
+	  	"jade": "1.7.0",
+	  	"wintersmith": "2.1.0"
+	},
+	"devDependencies": {
+		"pre-commit": "0.0.9",
+	  	"jslint": "0.6.4"
+	},
+	"pre-commit": [
+		"jslint",
+  		"test"
+	],
+	"scripts": {
+		"jslint": "jslint --edition=latest 'lib/*.js' 'index.js' 'lib/coap/*.js' 'lib/database/*.js' 'lib/rest/*.js' "
 	}
 }
