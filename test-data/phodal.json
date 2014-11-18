@@ -1,0 +1,340 @@
+{
+  "avatar": "https://avatars.githubusercontent.com/u/472311?v=3",
+  "connected_users": [
+    {
+      "name": "The Gitter Badger",
+      "username": "gitter-badger"
+    },
+    {
+      "name": "roadlabs",
+      "username": "roadlabs"
+    },
+    {
+      "name": "Matteo Collina",
+      "username": "mcollina"
+    },
+    {
+      "name": "Jamie Peter Goodwin",
+      "username": "jamiepg1"
+    },
+    {
+      "name": "hylong",
+      "username": "hylong"
+    }
+  ],
+  "name": "Fengda Huang",
+  "repositories": [
+    {
+      "count": 76,
+      "repo": "phodal/freerice"
+    },
+    {
+      "count": 28,
+      "repo": "phodal/designiot"
+    },
+    {
+      "count": 27,
+      "repo": "phodal/iot-coap"
+    },
+    {
+      "count": 10,
+      "repo": "phodal/iot"
+    }
+  ],
+  "similar_users": [
+    {
+      "name": "\u828b\u5934",
+      "username": "xinyu198736"
+    },
+    {
+      "name": "Simon Pigot",
+      "username": "sppigot"
+    },
+    {
+      "name": "Maxim Koverdyaev",
+      "username": "shadeglare"
+    },
+    {
+      "name": "hsenot",
+      "username": "hsenot"
+    },
+    {
+      "name": "curran",
+      "username": "curran"
+    }
+  ],
+  "timezone": 8,
+  "usage": {
+    "day": [
+      6,
+      20,
+      17,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      5,
+      13,
+      16,
+      9,
+      8,
+      14,
+      5,
+      5,
+      7,
+      6,
+      11,
+      6,
+      8,
+      2,
+      1
+    ],
+    "events": [
+      {
+        "day": [
+          3,
+          16,
+          15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          5,
+          12,
+          16,
+          9,
+          8,
+          12,
+          5,
+          5,
+          4,
+          6,
+          10,
+          6,
+          7,
+          1,
+          1
+        ],
+        "total": 142,
+        "type": "PushEvent",
+        "week": [
+          16,
+          23,
+          20,
+          29,
+          23,
+          20,
+          11
+        ]
+      },
+      {
+        "day": [
+          2,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "total": 7,
+        "type": "WatchEvent",
+        "week": [
+          0,
+          1,
+          0,
+          3,
+          1,
+          2,
+          0
+        ]
+      },
+      {
+        "day": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "total": 4,
+        "type": "CreateEvent",
+        "week": [
+          0,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "day": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "total": 3,
+        "type": "IssueCommentEvent",
+        "week": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "day": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "total": 2,
+        "type": "PullRequestEvent",
+        "week": [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "languages": [
+      {
+        "count": 120,
+        "language": "JavaScript",
+        "quantile": 86
+      },
+      {
+        "count": 29,
+        "language": "CSS",
+        "quantile": 100
+      },
+      {
+        "count": 4,
+        "language": "Python",
+        "quantile": 100
+      },
+      {
+        "count": 1,
+        "language": "TeX",
+        "quantile": 100
+      },
+      {
+        "count": 1,
+        "language": "C++",
+        "quantile": 100
+      },
+      {
+        "count": 1,
+        "language": "C#",
+        "quantile": 100
+      },
+      {
+        "count": 1,
+        "language": "C",
+        "quantile": 100
+      }
+    ],
+    "total": 158,
+    "week": [
+      18,
+      28,
+      21,
+      32,
+      25,
+      25,
+      11
+    ]
+  },
+  "username": "phodal"
+}

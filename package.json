@@ -2,6 +2,7 @@
 	"dependencies": {
 		"request": "2.48.0",
 	  	"jade": "1.7.0",
+	    "underscore": "1.7.0",
 	  	"wintersmith": "2.1.0"
 	},
 	"devDependencies": {
