@@ -8,6 +8,7 @@ function github_support() {
 }
 
 github_support.prototype.get = function(name, callback) {
+    'use strict';
     //var source = 'https://osrc.dfm.io/';
     var source = 'http://0.0.0.0:10000/';
     var uri = source + name + '.json';
@@ -18,6 +19,7 @@ github_support.prototype.get = function(name, callback) {
 };
 
 github_support.prototype.on = function (result) {
+    'use strict';
     this.result = result;
     if(_.isEmpty(result)) {
         throw new Error("no this id");
@@ -26,45 +28,55 @@ github_support.prototype.on = function (result) {
 };
 
 github_support.prototype.add_avatar = function () {
+    'use strict';
     _.extend(this.response, {"avatar" : JSON.parse(this.result).avatar});
     return this;
 };
 
 github_support.prototype.add_connected_users = function () {
+    'use strict';
     _.extend(this.response, {"connected_users": JSON.parse(this.result).connected_users});
     return this;
 };
 
 github_support.prototype.add_name = function () {
+    'use strict';
     _.extend(this.response, {"name": JSON.parse(this.result).name});
     return this;
 };
 
 github_support.prototype.add_repositories = function () {
+    'use strict';
     _.extend(this.response, {"repositories": JSON.parse(this.result).repositories});
     return this;
 };
 
 github_support.prototype.add_events = function () {
+    'use strict';
     _.extend(this.response, {"events": JSON.parse(this.result).usage.events});
     return this;
 };
 
 github_support.prototype.add_day_hours = function () {
+    'use strict';
     _.extend(this.response, {"day_hours": JSON.parse(this.result).usage.day});
     return this;
 };
 
 github_support.prototype.add_similar_users = function () {
+    'use strict';
     _.extend(this.response, {"similar_users": JSON.parse(this.result).usage.similar_users});
     return this;
-}
+};
+
 github_support.prototype.add_languages = function () {
+    'use strict';
     _.extend(this.response, {"languages": JSON.parse(this.result).usage.languages});
     return this;
 };
 
 github_support.prototype.build = function () {
+    'use strict';
     return this.response;
 };
 

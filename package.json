@@ -14,6 +14,6 @@
   		"test"
 	],
 	"scripts": {
-		"jslint": "jslint --edition=latest 'lib/*.js' 'index.js' 'lib/coap/*.js' 'lib/database/*.js' 'lib/rest/*.js' "
+		"jslint": "jslint --edition=latest 'server/*.js' 'index.js' "
 	}
 }
