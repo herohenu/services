@@ -24,3 +24,14 @@ pagerank.countPR('http://www.phodal.com/blog', function(error, pageRank) {
     'use strict';
     console.log(pageRank);
 });
+
+var alexa = require('alexarank');
+
+alexa("http://www.phodal.com/", function(error, result) {
+    'use strict';
+    if (!error) {
+        console.log(JSON.stringify(result));
+    } else {
+        console.log(error);
+    }
+});

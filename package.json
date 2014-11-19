@@ -11,7 +11,8 @@
 	  	"jade": "1.7.0",
 	    "underscore": "1.7.0",
 	  	"wintersmith": "2.1.0",
-	  	"pagerank-cn": "0.0.2"
+	  	"pagerank-cn": "0.0.2",
+	  	"alexarank": "0.1.1"
 	},
 	"devDependencies": {
 		"pre-commit": "0.0.9",
