@@ -1,6 +1,8 @@
 var Github   = require('./server/github_support');
 var PageRank = require('pagerank-cn');
 var fs       = require('fs');
+var jsdom    = require("jsdom");
+var request  = require('request');
 
 var gs = new Github();
 
@@ -41,5 +43,19 @@ alexa("http://www.phodal.com/", function(error, result) {
         });
     } else {
         console.log(error);
+    }
+});
+
+var jquery = fs.readFileSync("./lib/jquery-2.1.1.min.js", "utf-8");
+
+jsdom.env({
+    url: "http://blog.csdn.net/phodal",
+    src: [jquery],
+    done: function (errors, window) {
+        'use strict';
+        var $ = window.$;
+        $("#blog_rank").each(function () {
+            console.log($(this).text());
+        });
     }
 });
