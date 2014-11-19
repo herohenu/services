@@ -1,4 +1,5 @@
-var Github = require('./server/github_support');
+var Github   = require('./server/github_support');
+var PageRank = require('pagerank-cn');
 
 var gs = new Github();
 gs.get('phodal', function (result) {
@@ -15,4 +16,11 @@ gs.get('phodal', function (result) {
         .build();
 
     console.log(response);
+});
+
+var pagerank = new PageRank('http://www.phodal.com/blog');
+
+pagerank.countPR('http://www.phodal.com/blog', function(error, pageRank) {
+    'use strict';
+    console.log(pageRank);
 });
