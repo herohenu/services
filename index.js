@@ -1,49 +1,25 @@
 var Github   = require('./server/github_support');
-var PageRank = require('pagerank-cn');
-var fs       = require('fs');
 var CSDN     = require('./server/csdn_support');
+var PR       = require('./server/pagerank_support');
+var alexa = require('alexarank');
 
-var gs = new Github();
+var gs   = new Github();
 var csdn = new CSDN();
+var pr   = new PR();
 
 gs.get('phodal', function (result) {
     'use strict';
-    fs.writeFile("./generator/config.json", '{ "locals": ', function(err) {
-        if(err) {
-            console.log(err);
-        }
-    });
-
-    fs.appendFile("./generator/config.json", result + ",", function(err) {
-        if(err) {
-            console.log(err);
-        }
-    });
+    console.log(result);
 });
 
-var pagerank = new PageRank('http://www.phodal.com/blog');
-pagerank.countPR('http://www.phodal.com/blog', function(error, pageRank) {
+pr.get('http://www.phodal.com/blog', function(result){
     'use strict';
-    fs.appendFile("./generator/config.json", '"pagerank":' + pageRank  + ",", function(err) {
-        if(err) {
-            console.log(err);
-        }
-    });
+    console.log(result);
 });
-
-var alexa = require('alexarank');
 
 alexa("http://www.phodal.com/", function(error, result) {
     'use strict';
-    if (!error) {
-        fs.appendFile("./generator/config.json", '"alexa":' + JSON.stringify(result) + "}", function(err) {
-            if(err) {
-                console.log(err);
-            }
-        });
-    } else {
-        console.log(error);
-    }
+    console.log(result);
 });
 
 csdn.get('phodal', function(result){
