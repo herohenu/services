@@ -2,7 +2,6 @@ var Github   = require('./server/github_support');
 var PageRank = require('pagerank-cn');
 var fs       = require('fs');
 var jsdom    = require("jsdom");
-var request  = require('request');
 
 var gs = new Github();
 
@@ -54,8 +53,18 @@ jsdom.env({
     done: function (errors, window) {
         'use strict';
         var $ = window.$;
-        $("#blog_rank").each(function () {
+        console.log('"Info":');
+        $("#blog_rank li").each(function () {
             console.log($(this).text());
+        });
+        console.log('"Category":');
+        $("#panel_Category a").each(function () {
+            console.log($(this).text());
+        });
+        console.log('"Top":');
+        $('#hotarticls .panel_body.itemlist li').each(function () {
+            console.log($(this).find('a').html());
+            console.log($(this).find('span').html());
         });
     }
 });
