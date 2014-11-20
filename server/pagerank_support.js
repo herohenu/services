@@ -1,5 +1,5 @@
 var PageRank = require('pagerank-cn');
-var pagerank = new PageRank('http://www.phodal.com/blog');
+var pagerank = new PageRank();
 
 function pagerank_support() {
     'use strict';
