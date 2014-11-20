@@ -1,10 +1,10 @@
 var Github   = require('./server/github_support');
 var PageRank = require('pagerank-cn');
 var fs       = require('fs');
-var jsdom    = require("jsdom");
-var _        = require('underscore');
+var CSDN     = require('./server/csdn_support');
 
 var gs = new Github();
+var csdn = new CSDN();
 
 gs.get('phodal', function (result) {
     'use strict';
@@ -46,32 +46,7 @@ alexa("http://www.phodal.com/", function(error, result) {
     }
 });
 
-var jquery = fs.readFileSync("./lib/jquery-2.1.1.min.js", "utf-8");
-
-jsdom.env({
-    url: "http://blog.csdn.net/phodal",
-    src: [jquery],
-    done: function (errors, window) {
-        'use strict';
-        var $ = window.$;
-        var result = [];
-        var rank =[];
-        $("#blog_rank li").each(function () {
-            rank.push($(this).text().split("："));
-        });
-        result.push(_.object(rank));
-
-        var category = [];
-        $("#panel_Category a").each(function () {
-            if(!_.isEmpty($(this).text())) {
-                category.push($(this).text());
-            }
-        });
-        result.push(category);
-
-        $('#hotarticls .panel_body.itemlist li').each(function () {
-            result.push({article:$(this).find('a').html(), views:$(this).find('span').html()});
-        });
-        console.log(result);
-    }
+csdn.get('phodal', function(result){
+    'use strict';
+    console.log(result);
 });
