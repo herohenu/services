@@ -2,6 +2,7 @@ var Github   = require('./server/github_support');
 var PageRank = require('pagerank-cn');
 var fs       = require('fs');
 var jsdom    = require("jsdom");
+var _        = require('underscore');
 
 var gs = new Github();
 
@@ -53,18 +54,24 @@ jsdom.env({
     done: function (errors, window) {
         'use strict';
         var $ = window.$;
-        console.log('"Info":');
+        var result = [];
+        var rank =[];
         $("#blog_rank li").each(function () {
-            console.log($(this).text());
+            rank.push($(this).text().split("："));
         });
-        console.log('"Category":');
+        result.push(_.object(rank));
+
+        var category = [];
         $("#panel_Category a").each(function () {
-            console.log($(this).text());
+            if(!_.isEmpty($(this).text())) {
+                category.push($(this).text());
+            }
         });
-        console.log('"Top":');
+        result.push(category);
+
         $('#hotarticls .panel_body.itemlist li').each(function () {
-            console.log($(this).find('a').html());
-            console.log($(this).find('span').html());
+            result.push({article:$(this).find('a').html(), views:$(this).find('span').html()});
         });
+        console.log(result);
     }
 });
