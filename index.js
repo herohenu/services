@@ -12,7 +12,7 @@ gs.get('phodal', function (result) {
     console.log(result);
 });
 
-pr.get('http://www.phodal.com/blog', function(result){
+pr.get('http://www.phodal.com/', function(result){
     'use strict';
     console.log(result);
 });
