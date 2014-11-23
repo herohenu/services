@@ -14,6 +14,8 @@ var zhihu = new Zhihu();
 
 var response = [];
 
+var name = 'phodal';
+
 var next = function(result) {
     'use strict';
     response.push(result);
@@ -22,27 +24,27 @@ var next = function(result) {
 async.parallel([
     function () {
         'use strict';
-        pr.get('http://www.phodal.com/', next);
+        pr.get('http://www.' + name + '.com', next);
     },
 
     function () {
         'use strict';
-        gs.get('phodal', next);
+        gs.get(name, next);
     },
 
     function () {
         'use strict';
-        csdn.get('phodal', next);
+        csdn.get(name, next);
     },
 
     function () {
         'use strict';
-        zhihu.get('phodal', next);
+        zhihu.get(name, next);
     },
 
     function () {
         'use strict';
-        alexa.get('http://www.phodal.com', next);
+        alexa.get('http://www.' + name + '.com', next);
     }
 
 ]);
