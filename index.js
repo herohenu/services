@@ -2,6 +2,7 @@ var Github   = require('./server/github_support');
 var CSDN     = require('./server/csdn_support');
 var PR       = require('./server/pagerank_support');
 var Alexa    = require('./server/alexa_support');
+var Zhihu    = require('./server/zhihu_support');
 
 var async    = require('async');
 
@@ -9,6 +10,7 @@ var gs    = new Github();
 var csdn  = new CSDN();
 var pr    = new PR();
 var alexa = new Alexa();
+var zhihu = new Zhihu();
 
 var response = [];
 
@@ -31,6 +33,11 @@ async.parallel([
     function () {
         'use strict';
         csdn.get('phodal', next);
+    },
+
+    function () {
+        'use strict';
+        zhihu.get('phodal', next);
     },
 
     function () {
