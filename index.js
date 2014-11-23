@@ -1,28 +1,41 @@
 var Github   = require('./server/github_support');
 var CSDN     = require('./server/csdn_support');
 var PR       = require('./server/pagerank_support');
-var alexa = require('alexarank');
+var Alexa    = require('./server/alexa_support');
 
-var gs   = new Github();
-var csdn = new CSDN();
-var pr   = new PR();
+var async    = require('async');
 
-gs.get('phodal', function (result) {
+var gs    = new Github();
+var csdn  = new CSDN();
+var pr    = new PR();
+var alexa = new Alexa();
+
+var response = [];
+
+var next = function(result) {
     'use strict';
-    console.log(result);
-});
+    response.push(result);
+};
 
-pr.get('http://www.phodal.com/', function(result){
-    'use strict';
-    console.log(result);
-});
+async.parallel([
+    function () {
+        'use strict';
+        pr.get('http://www.phodal.com/', next);
+    },
 
-alexa("http://www.phodal.com/", function(error, result) {
-    'use strict';
-    console.log(result);
-});
+    function () {
+        'use strict';
+        gs.get('phodal', next);
+    },
 
-csdn.get('phodal', function(result){
-    'use strict';
-    console.log(result);
-});
+    function () {
+        'use strict';
+        csdn.get('phodal', next);
+    },
+
+    function () {
+        'use strict';
+        alexa.get('http://www.phodal.com', next);
+    }
+
+]);
