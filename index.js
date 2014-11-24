@@ -15,6 +15,7 @@ var zhihu = new Zhihu();
 var response = [];
 
 var name = 'phodal';
+var domain = 'http://www.' + name + '.com';
 
 var next = function(result) {
     'use strict';
@@ -24,7 +25,7 @@ var next = function(result) {
 async.parallel([
     function () {
         'use strict';
-        pr.get('http://www.' + name + '.com', next);
+        pr.get(domain, next);
     },
 
     function () {
@@ -44,7 +45,6 @@ async.parallel([
 
     function () {
         'use strict';
-        alexa.get('http://www.' + name + '.com', next);
+        alexa.get(domain, next);
     }
-
 ]);
