@@ -58,7 +58,7 @@ csdn_support.prototype.get = function(name, callback){
     });
 };
 
-csdn_support.prototype.promise_get = function(name){
+csdn_support.prototype.promise_get = function(prev, name){
     'use strict';
     var deferred = Q.defer();
     jsdom.env({
@@ -72,7 +72,8 @@ csdn_support.prototype.promise_get = function(name){
             csdn_support.prototype.add_blog_category($, result);
             csdn_support.prototype.add_articles($, result);
 
-            deferred.resolve(result);
+            var document = _.extend(prev, result);
+            deferred.resolve(document);
         }
     });
     return deferred.promise;

@@ -1,5 +1,6 @@
 var alexa    = require('alexarank');
 var Q        = require('q');
+var _        = require('underscore');
 
 function alexa_support() {
     'use strict';
@@ -13,11 +14,13 @@ alexa_support.prototype.get = function (domain, callback) {
     });
 };
 
-alexa_support.prototype.promise_get = function (domain) {
+alexa_support.prototype.promise_get = function (prev, domain) {
     'use strict';
     var deferred = Q.defer();
     alexa(domain, function(error, result) {
-        deferred.resolve(result);
+        var document = _.extend(prev, result);
+        console.log(document);
+        deferred.resolve(document);
     });
     return deferred.promise;
 };

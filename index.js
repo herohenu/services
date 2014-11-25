@@ -6,37 +6,33 @@ var Zhihu    = require('./server/zhihu_support');
 
 var async    = require('async');
 
-var gs    = new Github();
+var github    = new Github();
 var csdn  = new CSDN();
 var pr    = new PR();
 var alexa = new Alexa();
 var zhihu = new Zhihu();
 
-var response = [];
-
 var name = 'phodal';
 var domain = 'http://www.' + name + '.com';
 
-gs.promise_get(name)
+var response = [];
+
+github.promise_get(response, name)
     .then(function(result){
         'use strict';
-        response.push(result);
-        return pr.promise_get(domain);
+        return pr.promise_get(result, domain);
     })
     .then(function(result){
         'use strict';
-        response.push(result);
-        return csdn.promise_get(name);
+        return csdn.promise_get(result, name);
     })
     .then(function(result){
         'use strict';
-        response.push(result);
-        return zhihu.promise_get(name);
+        return zhihu.promise_get(result, name);
     })
     .then(function(result){
         'use strict';
-        response.push(result);
-        return alexa.promise_get(domain);
+        return alexa.promise_get(result, domain);
     })
     .then(function(result){
         'use strict';
@@ -53,7 +49,7 @@ gs.promise_get(name)
 //
 //    function () {
 //        'use strict';
-//        gs.get(name, next);
+//        github.get(name, next);
 //    },
 //
 //    function () {

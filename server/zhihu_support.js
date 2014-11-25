@@ -50,7 +50,7 @@ zhihu_support.prototype.get = function(name, callback){
 
 };
 
-zhihu_support.prototype.promise_get = function(name){
+zhihu_support.prototype.promise_get = function(prev, name){
     'use strict';
     var deferred = Q.defer();
     jsdom.env({
@@ -64,7 +64,8 @@ zhihu_support.prototype.promise_get = function(name){
             zhihu_support.prototype.add_user_thanks($, result);
             zhihu_support.prototype.add_good_zone($, result);
 
-            deferred.resolve(result);
+            var document = _.extend(prev, result);
+            deferred.resolve(document);
         }
     });
     return deferred.promise;
