@@ -1,8 +1,8 @@
-var Github   = require('./server/github_support');
-var CSDN     = require('./server/csdn_support');
-var PR       = require('./server/pagerank_support');
-var Alexa    = require('./server/alexa_support');
-var Zhihu    = require('./server/zhihu_support');
+var Github   = require('./server/support/github');
+var CSDN     = require('./server/support/csdn');
+var PR       = require('./server/support/pagerank');
+var Alexa    = require('./server/support/alexa');
+var Zhihu    = require('./server/support/zhihu');
 
 var github    = new Github();
 var csdn  = new CSDN();
