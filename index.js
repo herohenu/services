@@ -22,6 +22,17 @@ var next = function(result) {
     response.push(result);
 };
 
+gs.promise_get(name).then(function(result){
+    'use strict';
+    response.push(result);
+    pr.promise_get(domain);
+}).
+    then(pr.promise_get(domain)).then(function(result){
+        'use strict';
+        response.push(result);
+        console.log(response);
+    });
+
 async.parallel([
     function () {
         'use strict';

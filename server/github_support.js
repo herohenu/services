@@ -1,5 +1,6 @@
 var request = require('request');
 var _       = require('underscore');
+var Q       = require('q');
 
 function github_support() {
     'use strict';
@@ -16,6 +17,18 @@ github_support.prototype.get = function(name, callback) {
         this.result = body;
         callback(body);
     });
+};
+
+github_support.prototype.promise_get = function(name) {
+    'use strict';
+    //var source = 'https://osrc.dfm.io/';
+    var deferred = Q.defer();
+    var source = 'http://0.0.0.0:10000/';
+    var uri = source + name + '.json';
+    request(uri, function(error, response, body) {
+        deferred.resolve(body);
+    });
+    return deferred.promise;
 };
 
 github_support.prototype.on = function (result) {
