@@ -1,6 +1,6 @@
 {
-	"name": "xuntaServices",
-	"version": "0.0.1",
+	"name": "xunta-services",
+	"version": "0.0.2",
 	"description": "Services of Xuntayizhan",
 	"repository": {
 		"type": "git",

@@ -23,23 +23,18 @@ Information.prototype.get = function (callback) {
     var domain = Information.prototype.domain;
     github.promise_get(response, name)
         .then(function (result) {
-            'use strict';
             return pr.promise_get(result, domain);
         })
         .then(function (result) {
-            'use strict';
             return csdn.promise_get(result, name);
         })
         .then(function (result) {
-            'use strict';
             return zhihu.promise_get(result, name);
         })
         .then(function (result) {
-            'use strict';
             return alexa.promise_get(result, domain);
         })
         .then(function (result) {
-            'use strict';
             callback(result);
         });
 };
