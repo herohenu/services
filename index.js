@@ -1,10 +1,17 @@
 var Information = require('./server/information');
 
-var name = 'phodal';
-var domain = 'http://www.' + name + '.com';
-
-var info = new Information(name, domain);
-info.get(function(result){
+var xunta = function(name, domain){
     'use strict';
-    console.log(result);
-});
+    xunta.prototype.name = name;
+    xunta.prototype.domain = domain;
+};
+
+xunta.prototype.get = function(callback){
+    'use strict';
+    var info = new Information(xunta.prototype.name, xunta.prototype.domain);
+    info.get(function(result){
+        callback(result);
+    });
+};
+
+module.exports = xunta;

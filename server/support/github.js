@@ -10,8 +10,7 @@ function github_support() {
 
 github_support.prototype.get = function(name, callback) {
     'use strict';
-    //var source = 'https://osrc.dfm.io/';
-    var source = 'http://0.0.0.0:10000/';
+    var source = 'https://osrc.dfm.io/';
     var uri = source + name + '.json';
     request(uri, function(error, response, body) {
         this.result = body;
