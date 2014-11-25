@@ -1,6 +1,7 @@
 var _        = require('underscore');
 var jsdom    = require("jsdom");
 var fs       = require('fs');
+var Q        = require('q');
 
 var jquery = fs.readFileSync("./lib/jquery-2.1.1.min.js", "utf-8");
 
@@ -33,7 +34,7 @@ zhihu_support.prototype.add_good_zone = function ($, result) {
 zhihu_support.prototype.get = function(name, callback){
     'use strict';
     jsdom.env({
-        url: "http://www.zhihu.com/people/phodal",
+        url: "http://www.zhihu.com/people/" + name,
         src: [jquery],
         done: function (errors, window) {
             var $ = window.$;
@@ -48,5 +49,26 @@ zhihu_support.prototype.get = function(name, callback){
     });
 
 };
+
+zhihu_support.prototype.promise_get = function(name){
+    'use strict';
+    var deferred = Q.defer();
+    jsdom.env({
+        url: "http://www.zhihu.com/people/" + name,
+        src: [jquery],
+        done: function (errors, window) {
+            var $ = window.$;
+            var result = [];
+
+            zhihu_support.prototype.add_user_agree($, result);
+            zhihu_support.prototype.add_user_thanks($, result);
+            zhihu_support.prototype.add_good_zone($, result);
+
+            deferred.resolve(result);
+        }
+    });
+    return deferred.promise;
+};
+
 
 module.exports = zhihu_support;

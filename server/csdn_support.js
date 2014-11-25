@@ -1,6 +1,7 @@
 var _        = require('underscore');
 var jsdom    = require("jsdom");
 var fs       = require('fs');
+var Q        = require('q');
 
 var jquery = fs.readFileSync("./lib/jquery-2.1.1.min.js", "utf-8");
 
@@ -55,7 +56,27 @@ csdn_support.prototype.get = function(name, callback){
             callback(result);
         }
     });
-
 };
+
+csdn_support.prototype.promise_get = function(name){
+    'use strict';
+    var deferred = Q.defer();
+    jsdom.env({
+        url: "http://blog.csdn.net/" + name,
+        src: [jquery],
+        done: function (errors, window) {
+            var $ = window.$;
+            var result = [];
+
+            csdn_support.prototype.add_blog_info($, result);
+            csdn_support.prototype.add_blog_category($, result);
+            csdn_support.prototype.add_articles($, result);
+
+            deferred.resolve(result);
+        }
+    });
+    return deferred.promise;
+};
+
 
 module.exports = csdn_support;
