@@ -3,8 +3,6 @@ var jsdom    = require("jsdom");
 var fs       = require('fs');
 var Q        = require('q');
 
-var jquery = fs.readFileSync("./lib/jquery-2.1.1.min.js", "utf-8");
-
 function csdn_support() {
     'use strict';
     return;
@@ -44,7 +42,7 @@ csdn_support.prototype.get = function(name, callback){
     'use strict';
     jsdom.env({
         url: "http://blog.csdn.net/" + name,
-        src: [jquery],
+        scripts: ["http://code.jquery.com/jquery-2.1.1.min.js"],
         done: function (errors, window) {
             var $ = window.$;
             var result = [];
@@ -63,7 +61,7 @@ csdn_support.prototype.promise_get = function(prev, name){
     var deferred = Q.defer();
     jsdom.env({
         url: "http://blog.csdn.net/" + name,
-        src: [jquery],
+        scripts: ["http://code.jquery.com/jquery-2.1.1.min.js"],
         done: function (errors, window) {
             var $ = window.$;
             var result = [];
