@@ -4,8 +4,6 @@ var PR       = require('./server/pagerank_support');
 var Alexa    = require('./server/alexa_support');
 var Zhihu    = require('./server/zhihu_support');
 
-var async    = require('async');
-
 var github    = new Github();
 var csdn  = new CSDN();
 var pr    = new PR();
@@ -39,31 +37,3 @@ github.promise_get(response, name)
         response.push(result);
     });
 
-//
-//
-//async.parallel([
-//    function () {
-//        'use strict';
-//        pr.get(domain, next);
-//    },
-//
-//    function () {
-//        'use strict';
-//        github.get(name, next);
-//    },
-//
-//    function () {
-//        'use strict';
-//        csdn.get(name, next);
-//    },
-//
-//    function () {
-//        'use strict';
-//        zhihu.get(name, next);
-//    },
-//
-//    function () {
-//        'use strict';
-//        alexa.get(domain, next);
-//    }
-//]);
