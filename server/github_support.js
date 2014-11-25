@@ -26,8 +26,12 @@ github_support.prototype.promise_get = function(prev, name) {
     var source = 'http://0.0.0.0:10000/';
     var uri = source + name + '.json';
     request(uri, function(error, response, result) {
-        var document = _.extend(prev, JSON.parse(result));
-        deferred.resolve(document);
+        if(result !== undefined) {
+            var document = _.extend(prev, JSON.parse(result));
+            deferred.resolve(document);
+        } else {
+            deferred.resolve({});
+        }
     });
     return deferred.promise;
 };

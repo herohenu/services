@@ -34,6 +34,6 @@ github.promise_get(response, name)
     })
     .then(function(result){
         'use strict';
-        response.push(result);
+        console.log(result);
     });
 
