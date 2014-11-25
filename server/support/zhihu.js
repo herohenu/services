@@ -64,7 +64,7 @@ zhihu_support.prototype.promise_get = function(prev, name){
             zhihu_support.prototype.add_user_thanks($, result);
             zhihu_support.prototype.add_good_zone($, result);
 
-            var document = _.extend(prev, result);
+            var document = _.extend(prev, {zhihu:result});
             deferred.resolve(document);
         }
     });

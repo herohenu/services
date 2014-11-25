@@ -19,7 +19,6 @@ alexa_support.prototype.promise_get = function (prev, domain) {
     var deferred = Q.defer();
     alexa(domain, function(error, result) {
         var document = _.extend(prev, result);
-        console.log(document);
         deferred.resolve(document);
     });
     return deferred.promise;
