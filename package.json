@@ -21,7 +21,9 @@
 	  	"istanbul": "0.3.2",
 	  	"codeclimate-test-reporter": "0.0.4",
 	  	"chai": "~1.9.1",
-	  	"sinon": "~1.11.1"
+	  	"sinon": "~1.11.1",
+	  	"sinon-chai": "2.6.0",
+	  	"chai-as-promised": "4.1.1"
 	},
 	"pre-commit": [
 		"jslint",

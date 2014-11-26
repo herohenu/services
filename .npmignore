@@ -1,4 +1,5 @@
 test-data/
-examples
+examples/
+coverage/
 .jslint.conf
 
