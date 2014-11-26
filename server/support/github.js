@@ -20,9 +20,8 @@ github_support.prototype.get = function(name, callback) {
 
 github_support.prototype.promise_get = function(prev, name) {
     'use strict';
-    //var source = 'https://osrc.dfm.io/';
+    var source = 'https://osrc.dfm.io/';
     var deferred = Q.defer();
-    var source = 'http://0.0.0.0:10000/';
     var uri = source + name + '.json';
     request(uri, function(error, response, result) {
         if(result !== undefined) {
