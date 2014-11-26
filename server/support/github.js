@@ -24,9 +24,6 @@ github_support.prototype.promise_get = function(prev, name) {
     var deferred = Q.defer();
     var source = 'http://0.0.0.0:10000/';
     var uri = source + name + '.json';
-    if(_.isEmpty(prev)){
-        prev = [];
-    }
     request(uri, function(error, response, result) {
         if(result !== undefined) {
             var document = _.extend(prev, JSON.parse(result));
@@ -86,7 +83,7 @@ github_support.prototype.add_day_hours = function () {
 
 github_support.prototype.add_similar_users = function () {
     'use strict';
-    _.extend(this.response, {"similar_users": JSON.parse(this.result).usage.similar_users});
+    _.extend(this.response, {"similar_users": JSON.parse(thise.result).usage.similar_users});
     return this;
 };
 

@@ -45,9 +45,16 @@ info.zhihu_get = function (result) {
     return zhihu.promise_get(result, info.name);
 };
 
+info.initVal = function (result) {
+    'use strict';
+    result = [];
+    return result;
+};
+
 Information.prototype.get = function (callback) {
     'use strict';
-    Q.fcall(info.github_get)
+    Q.fcall(info.initVal)
+        .then(info.github_get)
         .then(info.csdn_get)
         .then(info.zhihu_get())
         .then(info.pageRank_get)
