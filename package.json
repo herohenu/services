@@ -1,6 +1,6 @@
 {
 	"name": "xunta-services",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Services of Xuntayizhan",
 	"repository": {
 		"type": "git",
@@ -16,13 +16,19 @@
 	},
 	"devDependencies": {
 		"pre-commit": "0.0.9",
-	  	"jslint": "0.6.4"
+	  	"jslint": "0.6.4",
+	  	"mocha": "~2.0.1",
+	  	"istanbul": "0.3.2",
+	  	"codeclimate-test-reporter": "0.0.4",
+	  	"chai": "~1.9.1",
+	  	"sinon": "~1.11.1"
 	},
 	"pre-commit": [
 		"jslint",
   		"test"
 	],
 	"scripts": {
-		"jslint": "jslint --edition=latest 'server/*.js' 'index.js' "
+		"jslint": "jslint --edition=latest 'server/*.js' 'index.js' ",
+	  	"test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec 'test/**/*_test.js';"
 	}
 }

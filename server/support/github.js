@@ -26,7 +26,6 @@ github_support.prototype.promise_get = function(prev, name) {
     request(uri, function(error, response, result) {
         if(result !== undefined) {
             var document = _.extend(prev, JSON.parse(result));
-            console.log(document);
             deferred.resolve(document);
         } else {
             deferred.resolve({});

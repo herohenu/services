@@ -1,6 +1,5 @@
 var _        = require('underscore');
 var jsdom    = require("jsdom");
-var fs       = require('fs');
 var Q        = require('q');
 
 function csdn_support() {
