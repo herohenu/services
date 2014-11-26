@@ -4,19 +4,8 @@ var Q       = require('q');
 
 function github_support() {
     'use strict';
-    this.result    = [];
-    this.response  = [];
+    return;
 }
-
-github_support.prototype.get = function(name, callback) {
-    'use strict';
-    var source = 'https://osrc.dfm.io/';
-    var uri = source + name + '.json';
-    request(uri, function(error, response, body) {
-        this.result = body;
-        callback(body);
-    });
-};
 
 github_support.prototype.promise_get = function(prev, name) {
     'use strict';

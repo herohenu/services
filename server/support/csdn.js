@@ -37,24 +37,6 @@ csdn_support.prototype.add_articles = function ($, result) {
     result.push(articles);
 };
 
-csdn_support.prototype.get = function(name, callback){
-    'use strict';
-    jsdom.env({
-        url: "http://blog.csdn.net/" + name,
-        scripts: ["http://code.jquery.com/jquery-2.1.1.min.js"],
-        done: function (errors, window) {
-            var $ = window.$;
-            var result = [];
-
-            csdn_support.prototype.add_blog_info($, result);
-            csdn_support.prototype.add_blog_category($, result);
-            csdn_support.prototype.add_articles($, result);
-
-            callback(result);
-        }
-    });
-};
-
 csdn_support.prototype.promise_get = function(prev, name){
     'use strict';
     var deferred = Q.defer();

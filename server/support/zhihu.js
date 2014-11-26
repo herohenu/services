@@ -28,25 +28,6 @@ zhihu_support.prototype.add_good_zone = function ($, result) {
     result.push({skilledTopics: skilledTopics});
 };
 
-zhihu_support.prototype.get = function(name, callback){
-    'use strict';
-    jsdom.env({
-        url: "http://www.zhihu.com/people/" + name,
-        scripts: ["http://code.jquery.com/jquery-2.1.1.min.js"],
-        done: function (errors, window) {
-            var $ = window.$;
-            var result = [];
-
-            zhihu_support.prototype.add_user_agree($, result);
-            zhihu_support.prototype.add_user_thanks($, result);
-            zhihu_support.prototype.add_good_zone($, result);
-
-            callback(result);
-        }
-    });
-
-};
-
 zhihu_support.prototype.promise_get = function(prev, name){
     'use strict';
     var deferred = Q.defer();

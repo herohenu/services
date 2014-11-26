@@ -9,13 +9,6 @@ function pagerank_support() {
     return;
 }
 
-pagerank_support.prototype.get = function(domain ,callback){
-    'use strict';
-    pagerank.countPR(domain, function(error, pageRank) {
-        callback(pageRank);
-    });
-};
-
 pagerank_support.prototype.promise_get = function(prev, domain){
     'use strict';
     var deferred = Q.defer();
