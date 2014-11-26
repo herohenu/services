@@ -9,7 +9,7 @@ function pagerank_support() {
     return;
 }
 
-pagerank_support.prototype.promise_get = function(prev, domain){
+pagerank_support.prototype.get = function(prev, domain){
     'use strict';
     var deferred = Q.defer();
     pagerank.countPR(domain, function(error, result) {

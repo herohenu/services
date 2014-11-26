@@ -37,7 +37,7 @@ csdn_support.prototype.add_articles = function ($, result) {
     result.push(articles);
 };
 
-csdn_support.prototype.promise_get = function(prev, name){
+csdn_support.prototype.get = function(prev, name){
     'use strict';
     var deferred = Q.defer();
     jsdom.env({

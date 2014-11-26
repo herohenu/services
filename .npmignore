@@ -1,5 +1,6 @@
 test-data/
 examples/
 coverage/
+node_modules/
 .jslint.conf
 

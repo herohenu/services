@@ -22,27 +22,27 @@ var info = Information.prototype;
 
 info.pageRank_get = function(result){
     'use strict';
-    return pageRank.promise_get(result, Information.prototype.domain);
+    return pageRank.get(result, Information.prototype.domain);
 };
 
 info.alexa_get = function(result){
     'use strict';
-    return alexa.promise_get(result, Information.prototype.domain);
+    return alexa.get(result, Information.prototype.domain);
 };
 
 info.csdn_get= function (result) {
     'use strict';
-    return csdn.promise_get(result, info.name);
+    return csdn.get(result, info.name);
 };
 
 info.github_get= function (result) {
     'use strict';
-    return github.promise_get(result, info.name);
+    return github.get(result, info.name);
 };
 
 info.zhihu_get = function (result) {
     'use strict';
-    return zhihu.promise_get(result, info.name);
+    return zhihu.get(result, info.name);
 };
 
 info.initVal = function (result) {

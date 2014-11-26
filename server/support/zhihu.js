@@ -28,7 +28,7 @@ zhihu_support.prototype.add_good_zone = function ($, result) {
     result.push({skilledTopics: skilledTopics});
 };
 
-zhihu_support.prototype.promise_get = function(prev, name){
+zhihu_support.prototype.get = function(prev, name){
     'use strict';
     var deferred = Q.defer();
     jsdom.env({

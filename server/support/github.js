@@ -7,7 +7,7 @@ function github_support() {
     return;
 }
 
-github_support.prototype.promise_get = function(prev, name) {
+github_support.prototype.get = function(prev, name) {
     'use strict';
     var source = 'https://osrc.dfm.io/';
     var deferred = Q.defer();

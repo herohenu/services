@@ -7,7 +7,7 @@ function alexa_support() {
     return;
 }
 
-alexa_support.prototype.promise_get = function (prev, domain) {
+alexa_support.prototype.get = function (prev, domain) {
     'use strict';
     var deferred = Q.defer();
     alexa(domain, function(error, result) {
